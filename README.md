@@ -18,11 +18,12 @@ This is used to enforce computer restarts, but also allow end users some flexibi
 		a. The last one will run as local system and read the contents of C:\temp\arestarter.txt and act upon it as follows:
 		b. restartNow - It will delete the two scheduled tasks created in PreRestartTask.ps1, then delete the arestarter.txt file, then immediately force restart their computer.
 		c. Date/Time - It will delete the AutoRestartForPatches task from the first step then recreate it with the trigger time set to the Date/Time value the user selected, then delete the arestarter.txt file.
-
-
-  NOTE: Changing cutoff days/time requires modifying both PreRestartTask.ps1 and RestartDropDownMenu.ps1. 
-        PreRestartTask.ps1: while ($friday -notlike "Friday*") # Need to change "Friday*" to whichever day you'd want to set as a cutoff
-                            $friday = $friday + " 5:00 PM" # Need to change that time to whatever default restart time you'd want
-        RestartDropDownMenu.ps1: Change the verbiage on the popup label; Edit while loop as above when populating the hash table; Edit other while loop as mentioned in the line above
+  	
+   	NOTE: Changing cutoff days/time requires modifying both PreRestartTask.ps1 and RestartDropDownMenu.ps1. 
+        PreRestartTask.ps1: 	 while ($friday -notlike "Friday*") # Need to change "Friday*" to whichever day you'd want to set as a cutoff
+                            	 $friday = $friday + " 5:00 PM" # Need to change that time to whatever default restart time you'd want
+        RestartDropDownMenu.ps1: Change the verbiage on the popup label.
+				 Edit while loop as above when populating the hash table.
+     				 Edit other while loop as mentioned in the line above.
 
         
