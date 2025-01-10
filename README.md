@@ -3,7 +3,6 @@ This is used to enforce computer restarts, but also allow end users some flexibi
 	1. PreRestartTask.ps1 - Runs first
 		a. This runs as local system on their computer and creates a task in Task Scheduler named AutoRestartForPatches that runs the bat cmd "/c shutdown /r /t 0" which triggers the upcoming Friday at 5pm
 		b. It then creates another scheduled task called RemoveAutoRestartWhenDone which triggers upon the event of their computer restarting or shutting down which deletes the AutoRestartForPatches task. This is here in case they manually restart before the scheduled task.
-    c. NOTE: the function "ScheduleCleanupTask" has <Author>CHANGE_AS_NEEDED</Author> hardcoded in the XML, that you may or may not need to set to something valid in order for it to function properly.
     
 	2. RestartDropDownMenu.ps1
 		a. This runs as the logged on user and creates a popup requesting user input on when they want to schedule an automatic restart.
@@ -26,4 +25,3 @@ This is used to enforce computer restarts, but also allow end users some flexibi
 				 Edit while loop as above when populating the hash table.
      				 Edit other while loop as mentioned in the line above.
 
-        
